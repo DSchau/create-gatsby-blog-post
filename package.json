@@ -2,18 +2,19 @@
   "name": "@dschau/create-gatsby-blog-post",
   "description": "A utility to create a gatsby blog post",
   "version": "1.0.0",
-  "main": "dist/index.js",
+  "main": "index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/dschau/create-gatsby-blog-post"
   },
   "license": "MIT",
   "bin": {
-    "create-post": "dist/cli"
+    "create-post": "cli.js"
   },
   "scripts": {
     "precommit": "lint-staged",
     "prebuild": "del-cli \"dist/**/*\"",
+    "prepublishOnly": "npm run build && cp ./package.json dist/package.json && cd dist",
     "build": "tsc",
     "prettier": "prettier --single-quote --write \"src/**/*.ts\"",
     "test": "jest",
@@ -23,7 +24,6 @@
     "date-fns": "~1.28.5",
     "lodash.capitalize": "~4.2.1",
     "lodash.kebabcase": "~4.1.1",
-    "mkdirp": "~0.5.1",
     "mz": "~2.6.0",
     "mz-modules": "~1.0.0",
     "yargs": "~8.0.2"

@@ -10,9 +10,9 @@ import definedDefaults from './defaults';
 import post from './templates/post';
 
 const normalize = options => {
-  options.folder = options.dasherize
+  options.folder = (options.dasherize
     ? dasherize(options.folder)
-    : options.folder;
+    : options.folder).toLowerCase();
   options.root = path.resolve(options.root);
   options.dry = options.dryRun || options.dry;
   return options;
@@ -28,7 +28,7 @@ export const createPost = (folder, opts = {}) => {
       folder
     })
   );
-  const capitalized = folder.split(/(-|\s)/).map(capitalize).join(' ');
+  const capitalized = options.folder.split(/-|\s/).map(capitalize).join(' ');
 
   const date = new Date(options.date);
 

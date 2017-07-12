@@ -5,5 +5,9 @@
     "rootDir": "src",
     "outDir": "dist",
     "target": "es2016"
-  }
+  },
+  "exclude": [
+    "__mocks__",
+    "node_modules"
+  ]
 }
