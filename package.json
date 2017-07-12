@@ -1,0 +1,28 @@
+{
+  "name": "@dschau/create-gatsby-blog-post",
+  "description": "A utility to create a gatsby blog post",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dschau/create-gatsby-blog-post"
+  },
+  "license": "MIT",
+  "bin": {
+    "create-post": "dist/cli"
+  },
+  "scripts": {
+    "prebuild": "del-cli \"dist/**/*\"",
+    "build": "tsc"
+  },
+  "dependencies": {
+    "mkdirp": "~0.5.1",
+    "mz": "~2.6.0",
+    "mz-modules": "~1.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "~8.0.9",
+    "del-cli": "~1.1.0",
+    "typescript": "~2.4.1"
+  }
+}
