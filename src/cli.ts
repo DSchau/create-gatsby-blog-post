@@ -1,11 +1,14 @@
 #!/usr/bin/env node
 import * as path from 'path';
+import * as yargs from 'yargs';
 import { createPost } from './index';
 
-const folder = process.argv.pop();
+const args = yargs.argv;
 
-if (folder === path.resolve(__dirname, path.basename(__filename))) {
+const folder = args._.pop();
+
+if (!folder) {
   throw new Error('A post title is required, e.g. `create-post "hello-world"`');
 }
 
-createPost(folder);
+createPost(folder, args);

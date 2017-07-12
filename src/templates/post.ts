@@ -1,14 +1,8 @@
-export default function post({
-  folder,
-  now,
-  capitalized
-}, {
-  useNewLine
-}) {
+export default function post({ date, folder, capitalized }, { useNewLine }) {
   return [
     `---
 path: "/${folder}.html"
-date: "${now.toJSON()}"
+date: "${date.toJSON()}"
 title: "${capitalized}"
 ---
 # ${capitalized}`

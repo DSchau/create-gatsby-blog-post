@@ -27,11 +27,11 @@ The utiliy can be installed globally (`-g`), but typically I prefer to use NPM s
 ```json
 {
   "scripts": {
-    "create-post": "create-gatsby-blog-post"
+    "create-post": "create-post"
   }
 }
 ```
 
 ```bash
-npm run create-post hello-world
+npm run create-post -- --use-new-line false hello-world
 ```

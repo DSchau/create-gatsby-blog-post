@@ -2,32 +2,71 @@ import * as path from 'path';
 
 import * as fs from 'mz/fs';
 import * as mkdir from 'mz-modules/mkdirp';
+import * as formatDate from 'date-fns/format';
+import * as capitalize from 'lodash.capitalize';
+import * as dasherize from 'lodash.kebabcase';
 
 import definedDefaults from './defaults';
 import post from './templates/post';
 
-export const createPost = (folder, options = {}) => {
-  const defaults = Object.assign(definedDefaults, options);
-  const capitalized = folder.split('-').map(part => part.charAt(0).toUpperCase() + part.slice(1)).join(' ');
-  const now = new Date();
+const normalize = options => {
+  options.folder = options.dasherize
+    ? dasherize(options.folder)
+    : options.folder;
+  options.root = path.resolve(options.root);
+  options.dry = options.dryRun || options.dry;
+  return options;
+};
+
+export const createPost = (folder, opts = {}) => {
+  if (!folder) {
+    throw new Error('A post title is required');
+  }
+
+  const options = normalize(
+    Object.assign({}, definedDefaults, opts, {
+      folder
+    })
+  );
+  const capitalized = folder.split(/(-|\s)/).map(capitalize).join(' ');
+
+  const date = new Date(options.date);
 
   const folderName = [
-    now.getMonth(),
-    now.getDate(),
-    now.getFullYear(),
-    folder
-  ]
-    .map(part => typeof part === 'number' && part <= 9 ? `0${part}` : part)
-    .join('-');
-  
-  const template = post({
-    capitalized,
-    folder,
-    now
-  }, defaults);
+    formatDate(date, options.dateFormat),
+    options.folder
+  ].join('-');
 
-  mkdir(path.join(defaults.root, folderName))
+  const template = post(
+    {
+      capitalized,
+      folder: options.folder,
+      date
+    },
+    options
+  );
+
+  const outputFolder = path.join(options.root, folderName);
+
+  if (options.dry) {
+    if (options.log) {
+      console.log(
+        `Would have created ${outputFolder}, but 'dry' option was specified`
+      );
+    }
+    return Promise.resolve({ dry: true, path: outputFolder, success: true });
+  }
+
+  return mkdir(outputFolder)
     .then(() => {
-      return fs.writeFile(path.join(defaults.root, folderName, 'index.md'), template, 'utf8');
+      return fs.writeFile(
+        path.join(outputFolder, 'index.md'),
+        template,
+        'utf8'
+      );
+    })
+    .then(() => ({ path: outputFolder, success: true }))
+    .catch(err => {
+      throw err;
     });
-}
+};

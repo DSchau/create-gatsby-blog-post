@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`post template does not include new line if specified 1`] = `
+"---
+path: \\"/hello-world.html\\"
+date: \\"1990-10-08T05:00:00.000Z\\"
+title: \\"Hello World\\"
+---
+# Hello World"
+`;
+
+exports[`post template writes correct file 1`] = `
+"---
+path: \\"/hello-world.html\\"
+date: \\"1990-10-08T05:00:00.000Z\\"
+title: \\"Hello World\\"
+---
+# Hello World
+"
+`;
