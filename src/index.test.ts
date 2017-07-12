@@ -1,7 +1,3 @@
-jest.mock('yargs');
-jest.mock('mz/fs');
-jest.mock('mz-modules/mkdirp');
-
 import * as mkdir from 'mz-modules/mkdirp';
 import * as fs from 'mz/fs';
 
