@@ -1,12 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`post template writes expected template 1`] = `
-"___
+"---
 path: \\"/hello-world.html\\"
 date: \\"1990-10-08T05:00:00.000Z\\"
 title: \\"Hello World\\"
 tags: []
-___
+---
 
 Your next, great blog post goes here
 "

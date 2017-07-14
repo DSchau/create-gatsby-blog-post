@@ -1,11 +1,13 @@
+const DELIMITTER = '---';
+
 const frontmatter = ({ date, folder, capitalized, tags }) => {
   return [
-    '___',
+    DELIMITTER,
     `path: "/${folder}.html"`,
     `date: "${date.toJSON()}"`,
     `title: "${capitalized}"`,
     tags && 'tags: []',
-    '___'
+    DELIMITTER
   ]
     .filter(val => val && val.length > 0)
     .join('\n');
