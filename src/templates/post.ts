@@ -3,7 +3,7 @@ const DELIMITTER = '---';
 const frontmatter = ({ date, folder, capitalized, tags }) => {
   return [
     DELIMITTER,
-    `path: "/${folder}.html"`,
+    `path: "/${folder}"`,
     `date: "${date.toJSON()}"`,
     `title: "${capitalized}"`,
     tags && 'tags: []',
