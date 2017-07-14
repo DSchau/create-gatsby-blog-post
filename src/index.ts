@@ -6,7 +6,7 @@ import * as formatDate from 'date-fns/format';
 import * as capitalize from 'lodash.capitalize';
 import * as dasherize from 'lodash.kebabcase';
 
-import definedDefaults from './defaults';
+import defaults from './defaults';
 import post from './templates/post';
 
 const normalize = options => {
@@ -24,7 +24,7 @@ export const createPost = (folder, opts = {}) => {
   }
 
   const options = normalize(
-    Object.assign({}, definedDefaults, opts, {
+    Object.assign({}, defaults, opts, {
       folder
     })
   );
@@ -37,14 +37,12 @@ export const createPost = (folder, opts = {}) => {
     options.folder
   ].join('-');
 
-  const template = post(
-    {
-      capitalized,
-      folder: options.folder,
-      date
-    },
-    options
-  );
+  const template = post({
+    capitalized,
+    date,
+    folder: options.folder,
+    tags: options.tags
+  });
 
   const outputFolder = path.join(options.root, folderName);
 

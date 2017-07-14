@@ -1,12 +1,21 @@
-export default function post({ date, folder, capitalized }, { useNewLine }) {
+const frontmatter = ({ date, folder, capitalized, tags }) => {
   return [
-    `---
-path: "/${folder}.html"
-date: "${date.toJSON()}"
-title: "${capitalized}"
----
-# ${capitalized}`
+    '___',
+    `path: "/${folder}.html"`,
+    `date: "${date.toJSON()}"`,
+    `title: "${capitalized}"`,
+    tags && 'tags: []',
+    '___'
   ]
-    .concat(useNewLine ? [`\n`] : [])
-    .join('');
+    .filter(val => val && val.length > 0)
+    .join('\n');
+};
+
+export default function post(options) {
+  return [
+    frontmatter(options),
+    null,
+    'Your next, great blog post goes here',
+    null
+  ].join('\n');
 }

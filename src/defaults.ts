@@ -5,5 +5,6 @@ export default {
   dry: false,
   log: process.env.NODE_ENV !== 'test',
   root: 'src/pages',
+  tags: true,
   useNewLine: true
 };

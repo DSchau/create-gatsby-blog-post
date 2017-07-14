@@ -7,5 +7,9 @@ module.exports = {
     'ts',
     'tsx',
     'js'
+  ],
+  testPathIgnorePatterns: [
+    '/node_modules',
+    '/dist'
   ]
 };
