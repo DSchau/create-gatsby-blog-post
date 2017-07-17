@@ -8,6 +8,7 @@ import * as dasherize from 'lodash.kebabcase';
 
 import defaults from './defaults';
 import post from './templates/post';
+import validate from './validate';
 
 const normalize = options => {
   options.folder = (options.dasherize
@@ -18,9 +19,9 @@ const normalize = options => {
   return options;
 };
 
-export const createPost = (folder, opts = {}) => {
+export const createPost = async (folder, opts = {}) => {
   if (!folder) {
-    throw new Error('A post title is required');
+    Promise.reject(new Error('A post title is required'));
   }
 
   const options = normalize(
@@ -45,6 +46,10 @@ export const createPost = (folder, opts = {}) => {
   });
 
   const outputFolder = path.join(options.root, folderName);
+
+  await validate(options).catch(e => {
+    return Promise.reject(e);
+  });
 
   if (options.dry) {
     if (options.log) {

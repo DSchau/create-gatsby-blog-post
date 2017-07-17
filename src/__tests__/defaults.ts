@@ -1,4 +1,4 @@
-import defaults from './defaults';
+import defaults from '../defaults';
 
 describe('defaults', () => {
   it('contains expected default keys', () => {

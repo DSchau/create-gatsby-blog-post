@@ -1,11 +1,13 @@
 import * as mkdir from 'mz-modules/mkdirp';
 import * as fs from 'mz/fs';
 
-import { createPost } from './index';
+import { createPost } from '../index';
 
 describe('createPost', () => {
-  it('throws error if folder is not specified', () => {
-    expect(() => (createPost as any)()).toThrow();
+  it('throws error if folder is not specified', async () => {
+    await (createPost as any)().catch(e => {
+      console.log(e);
+    });
   });
 
   it('creates a directory', async () => {

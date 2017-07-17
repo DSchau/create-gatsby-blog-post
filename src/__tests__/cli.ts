@@ -6,7 +6,7 @@ import * as fs from 'mz/fs';
 
 const init = (argv = {}) => {
   yargs.argv = argv;
-  require('./cli');
+  require('../cli');
 };
 
 describe('command line interface (CLI)', () => {

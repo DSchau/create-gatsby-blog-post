@@ -22,6 +22,8 @@
   },
   "dependencies": {
     "date-fns": "~1.28.5",
+    "globby": "~6.1.0",
+    "gray-matter": "~3.0.2",
     "lodash.capitalize": "~4.2.1",
     "lodash.kebabcase": "~4.1.1",
     "mz": "~2.6.0",
@@ -36,6 +38,7 @@
     "jest": "~20.0.4",
     "lint-staged": "~4.0.1",
     "prettier": "~1.5.2",
+    "rmfr": "~1.0.3",
     "ts-jest": "~20.0.7",
     "typescript": "~2.4.1"
   },
@@ -43,6 +46,7 @@
     "src/**/*.ts": [
       "prettier --single-quote --write",
       "git add"
-    ]
+    ],
+    "gitDir": "."
   }
 }

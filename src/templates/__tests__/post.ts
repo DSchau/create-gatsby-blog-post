@@ -1,4 +1,4 @@
-import post from './post';
+import post from '../post';
 
 describe('post template', () => {
   const date = new Date('10/08/1990');
