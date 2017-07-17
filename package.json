@@ -1,7 +1,7 @@
 {
   "name": "@dschau/create-gatsby-blog-post",
   "description": "A utility to create a gatsby blog post",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "index.js",
   "repository": {
     "type": "git",
@@ -18,7 +18,7 @@
     "build:publish": "npm run build && cd dist && npm run copy && npm publish --access public",
     "build:link": "npm run build && cd dist && npm run copy && npm link",
     "postbuild:link": "cd ../",
-    "copy": "cp ./package.json dist/package.json && cp ./.gitignore dist/.gitignore",
+    "copy": "cp ./package.json dist/package.json & cp ./.gitignore dist/.gitignore & cp ./README.md dist/README.md",
     "postbuild:publish": "cd ../",
     "prettier": "prettier --single-quote --write \"src/**/*.ts\"",
     "test": "jest",
