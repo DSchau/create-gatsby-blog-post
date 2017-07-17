@@ -4,11 +4,11 @@ A utility and CLI to scaffold out a blog post that follows the gatsby `pages/` f
 
 ## Set up
 
-`yarn add create-gatsby-blog-post --dev`
+`yarn add @dschau/create-gatsby-blog-post --dev`
 
 or for gloabl usage
 
-`yarn global add create-gastby-blog-post`
+`yarn global add @dschau/create-gatsby-blog-post`
 
 ## Usage
 
@@ -30,12 +30,6 @@ createPost('hello-world'); // will create the folder `src/pages/MM-DD-YYYY-hello
 |`tags`|Whether to place frontmatter "tags" key in each post|`true`|
 
 ### CLI
-
-The utility can be installed globally, which registers the global command `create-post`.
-
-```
-yarn add @dschau/create-gatsby-blog-post
-```
 
 ```bash
 create-post -- --date-format "MMM/DD/YYYY" hello-world
