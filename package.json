@@ -46,7 +46,6 @@
     "src/**/*.ts": [
       "prettier --single-quote --write",
       "git add"
-    ],
-    "gitDir": "."
+    ]
   }
 }
