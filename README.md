@@ -12,26 +12,31 @@ or for gloabl usage
 
 ## Usage
 
-### Programatic
+### `createPost(post: string, [options])`
 
 ```javascript
 const { createPost } = require('create-gatsby-blog-post');
 
-createPost('hello-world'); // will create the folder `src/pages/07-07-2017-hello-world`
+createPost('hello-world'); // will create the folder `src/pages/MM-DD-YYYY-hello-world`
 ```
+
+#### Options
+
+|Name|Description|Default|
+|:--:|-----------|:-----:|
+|`date`|Pass in a custom date object to use as the "now" value|`+new Date()`|
+|`dateFormat`|Format the date according to a [date-fns format string](https://date-fns.org/docs/format)|`MM-DD-YYYY`|
+|`root`|Root directory to use to place the blog post/markdown file|`src/pages`|
+|`tags`|Whether to place frontmatter "tags" key in each post|`true`|
 
 ### CLI
 
-The utiliy can be installed globally (`-g`), but typically I prefer to use NPM scripts, like so:
+The utility can be installed globally, which registers the global command `create-post`.
 
-```json
-{
-  "scripts": {
-    "create-post": "create-post"
-  }
-}
+```
+yarn add @dschau/create-gatsby-blog-post
 ```
 
 ```bash
-npm run create-post -- --use-new-line false hello-world
+create-post -- --date-format "MMM/DD/YYYY" hello-world
 ```
