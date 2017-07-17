@@ -15,7 +15,7 @@
     "precommit": "lint-staged",
     "prebuild": "del-cli \"dist/**/*\"",
     "build": "tsc",
-    "build:publish": "npm run build && cd dist && npm publish --access public",
+    "build:publish": "npm run build && cd dist && npm run copy && npm publish --access public",
     "copy": "cp ./package.json dist/package.json && cp ./.gitignore dist/.gitignore",
     "postbuild:publish": "cd ../",
     "prettier": "prettier --single-quote --write \"src/**/*.ts\"",
