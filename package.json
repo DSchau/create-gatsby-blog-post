@@ -1,7 +1,7 @@
 {
   "name": "@dschau/create-gatsby-blog-post",
   "description": "A utility to create a gatsby blog post",
-  "version": "1.0.0",
+  "version": "1.0.0-rc.0",
   "main": "index.js",
   "repository": {
     "type": "git",
