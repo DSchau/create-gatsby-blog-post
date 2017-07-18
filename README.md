@@ -1,5 +1,7 @@
 # `create-gatsby-blog-post`
 
+[![Build Status](https://travis-ci.org/DSchau/create-gatsby-blog-post.svg?branch=master)](https://travis-ci.org/DSchau/create-gatsby-blog-post)
+
 A utility and CLI to scaffold out a blog post that follows the gatsby `pages/` format, including a MD file with some default frontmatter (data) set up.
 
 ## Set up
