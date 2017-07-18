@@ -1,7 +1,7 @@
 import post from '../post';
 
 describe('post template', () => {
-  const date = new Date('10/08/1990');
+  const date = 1234;
   const postObj = {
     capitalized: 'Hello World',
     date,

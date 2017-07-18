@@ -3,7 +3,7 @@
 exports[`post template writes expected template 1`] = `
 "---
 path: \\"/hello-world\\"
-date: \\"1990-10-08T05:00:00.000Z\\"
+date: \\"1234\\"
 title: \\"Hello World\\"
 tags: []
 ---

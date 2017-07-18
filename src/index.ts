@@ -40,7 +40,7 @@ export const createPost = async (folder, opts = {}) => {
 
   const template = post({
     capitalized,
-    date,
+    date: date && date.toJSON() ? date.toJSON() : date,
     folder: options.folder,
     tags: options.tags
   });
