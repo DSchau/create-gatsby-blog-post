@@ -11,13 +11,13 @@ describe('createPost', () => {
   });
 
   it('creates a directory', async () => {
-    await createPost('hello-world', { date: new Date('10/08-1990') });
+    await createPost('hello-world', { date: Date.UTC(1990, 9, 8) });
 
     expect(mkdir.spy).toHaveBeenCalledWith(expect.any(String));
   });
 
   it('writes a blog post template', async () => {
-    await createPost('hello-world', { date: new Date('10/08/1990') });
+    await createPost('hello-world', { date: Date.UTC(1990, 9, 8) });
 
     expect(fs.spies.writeFile).toHaveBeenCalledWith(
       expect.any(String),
