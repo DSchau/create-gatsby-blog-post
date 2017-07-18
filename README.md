@@ -6,7 +6,7 @@ A utility and CLI to scaffold out a blog post that follows the gatsby `pages/` f
 
 `yarn add @dschau/create-gatsby-blog-post --dev`
 
-or for gloabl usage
+or for global usage
 
 `yarn global add @dschau/create-gatsby-blog-post`
 
@@ -17,7 +17,7 @@ or for gloabl usage
 ```javascript
 const { createPost } = require('create-gatsby-blog-post');
 
-createPost('hello-world'); // will create the folder `src/pages/MM-DD-YYYY-hello-world`
+createPost('hello-world'); // will create the folder `src/pages/MM-DD-YYYY-hello-world` with `index.md` inside
 ```
 
 #### Options
