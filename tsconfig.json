@@ -7,7 +7,8 @@
     "target": "es2016"
   },
   "exclude": [
-    "src/__tests__/**/*.ts",
+    "src/__tests__",
+    "src/templates/__tests__",
     "__mocks__",
     "node_modules",
     "src/**/*.test.ts"

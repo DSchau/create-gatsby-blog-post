@@ -1,6 +1,6 @@
 export default {
   date: +new Date(),
-  dateFormat: 'MM-DD-YYYY',
+  dateFormat: 'YYYY-MM-DD',
   dasherize: true,
   dry: false,
   log: process.env.NODE_ENV !== 'test',
